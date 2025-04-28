@@ -140,7 +140,7 @@ export default function AdvisorView() {
             {finalResponse && (
                 <div className="p-4 border-2 rounded-lg shadow-md">
                     <h1 className="text-4xl text-[#9A1B1B] font-bold">
-                        Step 4: Confucian Recommendation with Citations from Analects
+                        Step 4: Confucian Recommendation with Citations from The Analects (论语)
                     </h1>
                     <div className="grid grid-cols-2 gap-4 my-8 whitespace-pre-wrap">
                         {/* LHS: Recommendation */}
