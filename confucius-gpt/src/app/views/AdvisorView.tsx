@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import UserPrompt from '../components/UserPrompt';
 import { formatAnswerPromptURL, formatTranslateURL, formatURLExtractConfucianValues, formatURLQueryAnalects } from '../lib/apiformatter';
 import { callAPI } from '../lib/apihandler';
-import { extract_confucian_values_json_format, formatPromptHighLevel } from '../lib/llm-handler';
+import { formatPromptHighLevel } from '../lib/llm-handler';
 import ToggleItem from '../components/ToggleItem';
 import Link from 'next/link';
 
@@ -52,6 +52,7 @@ export default function AdvisorView() {
 
         // Step 3) Get Default LLM Response
         setDefaultResponse(defaultOption);
+        console.log("Default Response", defaultResponse);
 
         // Step 4) Get Final Answer
         const queryAnalectsURL = formatURLQueryAnalects(prompt, updatedConfucianValues);
@@ -179,6 +180,7 @@ export default function AdvisorView() {
 }
 
 // Generated Using ChatGPT
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function formatAnswerWithCitations(answer: string, citations: any[]) {
     if (!citations || citations.length === 0) return answer;
 
@@ -186,7 +188,7 @@ function formatAnswerWithCitations(answer: string, citations: any[]) {
     const sentences = answer.match(/[^.!?]+[.!?]?/g);
     if (!sentences) return answer;
 
-    let formattedSentences = sentences.map((sentence, idx) => {
+    const formattedSentences = sentences.map((sentence, idx) => {
         const citationNumber = idx < citations.length ? idx + 1 : null;
         if (citationNumber) {
             return `${sentence.trim()} <b><sup>${citationNumber}</sup></b>`;

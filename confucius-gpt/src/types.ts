@@ -1,9 +1,11 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type UserPrompt = {
     scenario: string;
     option1: string;
     option2: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type ConfucianValues = {
     ren: string;
     li: string;
@@ -18,6 +20,7 @@ type OutputCitation = {
     orig_text: string[];
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type AnswerWithAnalectsCitation = {
     answer: string;
     citations: OutputCitation[] | null;

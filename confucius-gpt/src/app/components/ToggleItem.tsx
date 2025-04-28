@@ -1,6 +1,5 @@
 import React from 'react';
 
-type Props = {};
 // Generated Using ChatGPT
 export default function ToggleItem({ chinese, english }: { chinese: string, english: string; }) {
     const [open, setOpen] = React.useState(false);

@@ -1,5 +1,4 @@
 import { CohereClientV2 } from 'cohere-ai';
-import { ResponseFormatV2 } from 'cohere-ai/api';
 import getConfucianDocuments from './confucian-documents';
 
 const cohere = new CohereClientV2({
@@ -96,7 +95,9 @@ export async function query_answer_with_analects(prompt: string) {
         // Use a reducer to deduplicate based on document id
         const seenDocumentIds = new Set<string>(); // Track seen document ids
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         citations = llm_response_json["message"]["citations"].reduce((acc: OutputCitation[], citation: Record<string, any>, idx: number) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const uniqueSources = citation["sources"].filter((source: Record<string, any>) => {
                 // Check if the document id has been seen already
                 const documentId = source["document"]["id"];
@@ -112,6 +113,7 @@ export async function query_answer_with_analects(prompt: string) {
                     start: citation["start"],
                     end: citation["end"],
                     citation_number: idx,
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     orig_text: uniqueSources.map((source: Record<string, any>) => source["document"]["content"])
                 } as OutputCitation);
             }
