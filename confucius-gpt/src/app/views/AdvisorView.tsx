@@ -71,7 +71,7 @@ export default function AdvisorView() {
                         Answering the Age Old Question: What would Confucius say?
                     </p>
                     <p className='font-semibold'>Guidance based on Confucian Values: 礼, 仁, 孝</p>
-                    <Link href={'https://github.com/Ky-Ng/ConfuciusGPT'} target="_blank" rel="noopener noreferrer">
+                    <Link href={'https://github.com/Ky-Ng/confucius-gpt'} target="_blank" rel="noopener noreferrer">
                         <button className="mt-4 px-6 py-2 bg-[#f5e1e1] text-[#9A1B1B] font-semibold rounded-lg shadow-lg hover:bg-[#e9c4c4] transition duration-300 border border-[#9A1B1B]">
                             Github: Learn More
                         </button>
